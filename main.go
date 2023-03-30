@@ -1,23 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
+
+const s = "constant var"
 
 func main() {
-	fmt.Println("variables")
+	fmt.Println("constant")
+	fmt.Println(s)
 
-	var a = "initial"
-	fmt.Println(a)
-
-	var b, c int = 1, 3
-	fmt.Println(b, c)
-
-	var d = true
+	const n = 50000000
+	const d = 3e20 / n
 	fmt.Println(d)
+	fmt.Println(int64(d))
 
-	var e int
-	fmt.Println(e)
-
-	f := "short"
-	// eq. var f string = "short"
-	fmt.Println(f)
+	fmt.Println(math.Sin(n))
 }
