@@ -2,53 +2,28 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
-	fmt.Println("switch")
-	i := 2
-	fmt.Printf("%d as english ", i)
-	switch i {
-	case 1:
-		fmt.Println("one")
-	case 2:
-		fmt.Println("two")
-	default:
-		fmt.Println("other")
-	}
+	fmt.Println("arrays")
+	var a [5]int
+	fmt.Println("zero arrays: ", a)
 
-	switch time.Now().Weekday() {
-	case time.Sunday, time.Saturday:
-		fmt.Println("it is weekend")
-	default:
-		fmt.Println("is work day")
-	}
+	a[4] = 100
+	fmt.Println("set: ", a)
+	fmt.Println("get: ", a[4])
+	fmt.Println("len(a) ", len(a))
 
-	t := time.Now()
-	switch {
-	case t.Hour() < 12:
-		fmt.Println("is up time")
-	default:
-		fmt.Println("default")
-	}
+	b := [5]string{"a", "b", "c", "d", "e"}
+	fmt.Println("dcl: ", b)
 
-	whoAmI := func(i any) {
-		switch t := i.(type) {
-		case bool:
-			fmt.Println("is BOOL type")
-		case int:
-			fmt.Println("is INT type")
-		case string:
-			fmt.Println("is STRING type")
-		default:
-			fmt.Printf("un know type: %T\n", t)
+	var towD [2][3]int
+
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 3; j++ {
+			towD[i][j] = i + j
 		}
 	}
 
-	whoAmI(true)
-	whoAmI(2)
-	whoAmI("string")
-	whoAmI(struct{}{})
-
+	fmt.Println("tow: ", towD)
 }
