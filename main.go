@@ -2,27 +2,53 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
-	fmt.Println("if-else")
-
-	if 7%2 == 0 {
-		fmt.Println("7 is even")
-	} else {
-		fmt.Println("7 is odd")
+	fmt.Println("switch")
+	i := 2
+	fmt.Printf("%d as english ", i)
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	default:
+		fmt.Println("other")
 	}
 
-	if 8%4 == 0 {
-		fmt.Println("8 is divisible by 4")
+	switch time.Now().Weekday() {
+	case time.Sunday, time.Saturday:
+		fmt.Println("it is weekend")
+	default:
+		fmt.Println("is work day")
 	}
 
-	if num := 9; num < 0 {
-		fmt.Println(num, "is negative")
-	} else if num < 10 {
-		fmt.Println(num, "has 1 digit")
-	} else {
-		fmt.Println("has multiple digits")
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("is up time")
+	default:
+		fmt.Println("default")
 	}
+
+	whoAmI := func(i any) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("is BOOL type")
+		case int:
+			fmt.Println("is INT type")
+		case string:
+			fmt.Println("is STRING type")
+		default:
+			fmt.Printf("un know type: %T\n", t)
+		}
+	}
+
+	whoAmI(true)
+	whoAmI(2)
+	whoAmI("string")
+	whoAmI(struct{}{})
 
 }
